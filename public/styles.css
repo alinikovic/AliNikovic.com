@@ -759,6 +759,10 @@ h3 {
   color: var(--green);
 }
 
+.analyzer-prompt-mobile {
+  display: none;
+}
+
 .source-list {
   margin: 18px 0 0;
   padding: 14px 0 0;
@@ -998,6 +1002,22 @@ li + li {
 
   .analyzer {
     transform: none;
+  }
+
+  .analysis-output .muted {
+    max-width: 36ch;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .analyzer-prompt-desktop {
+    display: none;
+  }
+
+  .analyzer-prompt-mobile {
+    display: block;
   }
 
   .analyzer-copy p,
