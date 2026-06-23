@@ -818,6 +818,7 @@ li + li {
 
 .footer-copyright strong {
   color: var(--muted);
+  font-weight: inherit;
 }
 
 .copyright-mark {
