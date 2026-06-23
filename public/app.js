@@ -5,6 +5,7 @@ const marketField = document.querySelector("#market-field");
 
 setupMarketField();
 setupRevealTransitions();
+setupInternalNavigation();
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -46,6 +47,29 @@ if (form && input && output) {
       message.textContent = error.message || "Could not run the analysis.";
       output.append(message);
     }
+  });
+}
+
+function setupInternalNavigation() {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener("click", event => {
+      const targetId = link.getAttribute("href");
+      const target = targetId === "#top"
+        ? document.querySelector("#top")
+        : document.querySelector(targetId);
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    });
   });
 }
 

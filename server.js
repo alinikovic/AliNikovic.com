@@ -225,6 +225,9 @@ async function resolveStock(input) {
   const aliases = {
     nvida: "NVDA",
     nvidia: "NVDA",
+    spacex: "SPCX",
+    "space x": "SPCX",
+    "space exploration technologies": "SPCX",
     tesla: "TSLA",
     apple: "AAPL",
     microsoft: "MSFT",
@@ -324,6 +327,7 @@ async function fetchJson(url) {
 function getCompanyProfile(symbol, name) {
   const profiles = {
     NVDA: "NVIDIA designs graphics processing units, accelerated computing platforms, data-center chips, AI hardware and software tools used in gaming, cloud computing, artificial intelligence, professional visualization, and autonomous systems.",
+    SPCX: "SpaceX develops reusable rockets, spacecraft, satellite launch services, human spaceflight systems, and the Starlink satellite internet network.",
     TSLA: "Tesla designs and sells electric vehicles, energy storage products, solar technology, charging services, and related software-enabled automotive features.",
     AAPL: "Apple designs and sells consumer technology products and services, including iPhone, Mac, iPad, wearables, digital content, payments, cloud services, and subscriptions.",
     MSFT: "Microsoft sells cloud computing, productivity software, operating systems, gaming products, enterprise tools, LinkedIn services, and AI-enabled business platforms.",
