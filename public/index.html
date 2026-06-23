@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ali Nikovic | Finance & Business Portfolio</title>
+    <meta
+      name="description"
+      content="Ali Nikovic's professional portfolio for finance, business analysis, research projects, and career materials."
+    >
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Ali Nikovic home">
+        <span class="brand-mark">AN</span>
+        <span>Ali Nikovic</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#analyzer">Analyzer</a>
+        <a href="#contact">Reach Out</a>
+      </nav>
+    </header>
+
+    <canvas id="market-field" class="market-field" aria-hidden="true"></canvas>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>Aspiring Finance<br>Professional</h1>
+          <p class="hero-institution">
+            <span>Institution</span>
+            Baruch College | Zicklin School of Business
+          </p>
+          <div class="hero-links" aria-label="Professional links">
+            <a class="profile-card profile-card-linkedin" href="https://www.linkedin.com/in/alinikovic" target="_blank" rel="noreferrer" aria-label="Ali Nikovic LinkedIn profile">
+              <span class="profile-card-mark">in</span>
+              <span>
+                <strong>LinkedIn</strong>
+                <em>Professional profile</em>
+              </span>
+            </a>
+            <a class="profile-card" href="/files/ali-nikovic-resume.docx" aria-label="Ali Nikovic resume file">
+              <span class="profile-card-mark resume-mark">CV</span>
+              <span>
+                <strong>Resume</strong>
+                <em>View file</em>
+              </span>
+            </a>
+          </div>
+          <p class="hero-bio">
+            My name is Ali Nikovic, and I'm a rising junior Finance student at
+            <span class="notebook-highlight">Baruch's Zicklin School of Business.</span>
+            My focus is on equity research, capital markets, and the mechanics behind how markets
+            actually move. I also build things, such as an
+            <span class="notebook-highlight">AI-assisted equity research</span> tool that turns raw
+            company data into readable analysis. Working as a residential concierge and handyman
+            while putting myself through school as a first-generation student has built a work
+            ethic that carries into everything I do.
+          </p>
+        </div>
+
+        <aside class="market-panel identity-panel" aria-label="Profile snapshot">
+          <div class="panel-topline">
+            <span>Profile</span>
+            <span>Finance</span>
+          </div>
+          <div class="identity-block">
+            <span>School</span>
+            <strong>Zicklin School of Business</strong>
+            <em>Baruch College</em>
+          </div>
+          <div class="identity-block">
+            <span>Focus</span>
+            <strong>Financial Studies</strong>
+            <em>Research, valuation, and markets</em>
+          </div>
+          <div class="identity-block">
+            <span>Goal</span>
+            <strong>Clear investment thinking</strong>
+            <em>Turning information into insight</em>
+          </div>
+          <div class="mini-terminal" aria-hidden="true">
+            <div><span>Coverage</span><strong>Equities</strong></div>
+            <div><span>Method</span><strong>Modeling + research</strong></div>
+            <div><span>Lens</span><strong>Risk / return</strong></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="intro-section" id="about">
+        <div class="profile-intro">
+          <p class="eyebrow">Profile Overview</p>
+        </div>
+
+        <div class="profile-details" aria-label="Professional profile details">
+          <section>
+            <p class="detail-label">Core Strengths</p>
+            <ul class="profile-list">
+              <li>Financial analysis</li>
+              <li>Market research</li>
+              <li>Excel modeling</li>
+              <li>Business writing</li>
+              <li>Technical literacy</li>
+              <li>Generative AI tools</li>
+              <li>Adaptability</li>
+            </ul>
+          </section>
+
+          <section>
+            <p class="detail-label">Current Focus</p>
+            <div class="detail-entry">
+              <strong>Academic Development</strong>
+              <span>Baruch College | Zicklin School of Business</span>
+              <p>Building experience through coursework, research projects, and practical finance tools.</p>
+            </div>
+            <div class="detail-entry">
+              <strong>Professional Direction</strong>
+              <span>Finance and business analysis</span>
+              <p>Focused on understanding companies, markets, and the decisions behind strong business performance.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="analyzer-section" id="analyzer">
+        <div class="analyzer-copy">
+          <p class="eyebrow">Stock Research</p>
+          <h2><span class="ai-mark">AI</span> Equity Research</h2>
+          <p>
+            Enter a ticker or company name to test a concise research brief. This tool is for
+            education and research practice, not financial advice.
+          </p>
+        </div>
+
+        <div class="analyzer">
+          <form id="stock-form" class="search-form">
+            <label for="stock-query">Company or ticker</label>
+            <div class="search-row">
+              <input
+                id="stock-query"
+                name="query"
+                type="text"
+                placeholder="Example: Apple, JPM, Nvidia"
+                autocomplete="off"
+                required
+              >
+              <button type="submit">Analyze</button>
+            </div>
+          </form>
+
+          <div id="analysis-output" class="analysis-output" aria-live="polite">
+            <p class="muted">
+              Try a company name or ticker to see the current price, daily move, recent headlines,
+              and a concise research brief.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-copy">
+          <p class="eyebrow">Reach Out</p>
+          <h2>Let’s connect.</h2>
+          <p>
+            For professional opportunities, networking, or questions about my work, the best
+            places to reach me are listed below.
+          </p>
+
+          <div class="contact-grid" aria-label="Contact details">
+            <a class="contact-card" href="mailto:nikovicali@gmail.com">
+              <span>Email</span>
+              <strong>nikovicali@gmail.com</strong>
+              <em>Preferred contact</em>
+            </a>
+            <a class="contact-card contact-card-linkedin" href="https://www.linkedin.com/in/alinikovic" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>linkedin.com/in/alinikovic</strong>
+              <em>Professional profile</em>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-copyright">
+        <span class="copyright-mark" aria-hidden="true">©</span>
+        <span>2026</span>
+        <strong>Ali Nikovic</strong>
+      </div>
+      <a class="footer-github" href="https://github.com/alinikovic" target="_blank" rel="noreferrer">
+        GitHub
+        <span aria-hidden="true">↗</span>
+      </a>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

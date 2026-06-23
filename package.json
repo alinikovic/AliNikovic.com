@@ -1,0 +1,13 @@
+{
+  "name": "ali-nikovic-finance-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Finance-focused personal portfolio with an AI stock research assistant.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
