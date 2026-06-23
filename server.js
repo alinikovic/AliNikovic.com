@@ -40,36 +40,47 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(port, () => {
-  console.log(`Ali Nikovic portfolio running at http://localhost:${port}`);
-});
+if (require.main === module) {
+  server.listen(port, () => {
+    console.log(`Ali Nikovic portfolio running at http://localhost:${port}`);
+  });
+}
 
 async function handleAnalyze(req, res) {
   const body = await readBody(req);
   const input = String(body.query || "").trim();
+  const result = await analyzeQueryInput(input);
+  sendJson(res, result.status, result.payload);
+}
 
+async function analyzeQueryInput(input) {
   if (!input) {
-    sendJson(res, 400, { error: "Enter a company name or ticker." });
-    return;
+    return {
+      status: 400,
+      payload: { error: "Enter a company name or ticker." }
+    };
   }
 
   if (input.length > 80) {
-    sendJson(res, 400, { error: "Keep the search under 80 characters." });
-    return;
+    return {
+      status: 400,
+      payload: { error: "Keep the search under 80 characters." }
+    };
   }
 
   const marketBrief = await createMarketResearchBrief(input);
   if (marketBrief) {
-    sendJson(res, 200, marketBrief);
-    return;
+    return { status: 200, payload: marketBrief };
   }
 
   if (!process.env.ANTHROPIC_API_KEY) {
-    sendJson(res, 200, {
-      text: createOfflineResearchBrief(input),
-      citations: []
-    });
-    return;
+    return {
+      status: 200,
+      payload: {
+        text: createOfflineResearchBrief(input),
+        citations: []
+      }
+    };
   }
 
   const response = await fetch("https://api.anthropic.com/v1/messages", {
@@ -113,14 +124,16 @@ async function handleAnalyze(req, res) {
   const data = await response.json();
 
   if (!response.ok) {
-    sendJson(res, response.status, {
-      error: data.error?.message || "The AI request failed."
-    });
-    return;
+    return {
+      status: response.status,
+      payload: {
+        error: data.error?.message || "The AI request failed."
+      }
+    };
   }
 
   const parsed = parseAnthropicContent(data.content || []);
-  sendJson(res, 200, parsed);
+  return { status: 200, payload: parsed };
 }
 
 async function createMarketResearchBrief(input) {
@@ -474,3 +487,7 @@ function loadEnv() {
     }
   }
 }
+
+module.exports = {
+  analyzeQueryInput
+};
